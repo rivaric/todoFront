@@ -23,7 +23,7 @@ const Item = ({ task, onDelete, onReady, setTasks }) => {
           axios
             .put(`http://localhost:8080/api/todos/${task.id}`, {
               title: e.target.value,
-              is_ready: false,
+              is_ready: task.is_ready,
             })
             .then(() => {
               axios

@@ -35,9 +35,26 @@
   border-radius: 5px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.2s;
   &:hover {
-      transition: all 0.2s;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transform: translateY(-5px);
   }
+}
+
+.hide {
+  display: none;
+}
+
+.active {
+  transform: translateY(-5px);
+}
+
+.input_search {
+  background-color: #ebebeb;
+  border-radius: 5px;
+  padding-left: 10px;
+  width: 110px;
+  visibility: visible;
+  transition: all 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

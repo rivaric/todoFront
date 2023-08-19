@@ -8,28 +8,34 @@
   margin-bottom: 50px;
   margin-top: 100px;
   text-align: center;
-  padding-top: 20px;
+  align-items: center;
+  padding-top: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   .btn_plus {
     position: absolute;
     top: 50%;
     left: 82%;
-    transform: translateX(-50%) translateY(25%);
+    transform: translateX(-50%) translateY(-10%);
   }
   .uil-plus:hover {
     color: rgba(0, 47, 255, 0.619);
   }
 }
 
+.text_title {
+  margin-bottom: 15px;
+}
+
 .input {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
   margin: 0 auto;
+  margin-bottom: 10px;
   width: 300px;
   height: 40px;
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 40px;
+}
+
+.error {
+  color: brown;
 }

@@ -3,7 +3,8 @@ import { useState } from "react";
 import "../input/Input.scss";
 
 const Input = ({ setTasks, setIsLoading }) => {
-  const [task, setTask] = useState("");
+  const [title, setTask] = useState("");
+  const [isError, setIsError] = useState("");
 
   const onChange = (e) => {
     setTask(e.target.value);
@@ -11,28 +12,37 @@ const Input = ({ setTasks, setIsLoading }) => {
 
   const onClick = async (task) => {
     setIsLoading(true);
-    await axios
-      .post("http://localhost:8080/api/todos", {
-        title: task,
-        is_ready: false,
-      })
-      .then(() => {
-        axios
-          .get(`http://localhost:8080/api/todos`)
-          .then((res) => {
-            const allTasks = res.data;
-            setTasks(allTasks);
-            setIsLoading(false);
-          })
-          .catch((res) => console.log(res));
-        setTask("");
-      })
-      .catch((res) => console.log(res));
+    if (title.length < 5 && title.length > 0) {
+      setIsError("The task is too short");
+      setIsLoading(false);
+    } else if (title.length === 0) {
+      setIsError("The task cannot be empty");
+      setIsLoading(false);
+    } else {
+      setIsError("");
+      await axios
+        .post("http://localhost:8080/api/todos", {
+          title: title,
+          is_ready: false,
+        })
+        .then(() => {
+          axios
+            .get(`http://localhost:8080/api/todos`)
+            .then((res) => {
+              const allTasks = res.data;
+              setTasks(allTasks);
+              setIsLoading(false);
+            })
+            .catch((res) => console.log(res));
+          setTask("");
+        })
+        .catch((res) => console.log(res));
+    }
   };
 
   return (
     <div className="input_backround">
-      <p>
+      <p className="text_title">
         Add new tasks <br /> and start completing them!
       </p>
       <label htmlFor="task">
@@ -41,16 +51,17 @@ const Input = ({ setTasks, setIsLoading }) => {
           type="text"
           className="input"
           placeholder="Add task"
-          value={task}
+          value={title}
           onChange={onChange}
         />
         <button
           className="btn_plus"
           type="submit"
-          onClick={() => onClick(task)}>
+          onClick={() => onClick(title)}>
           <i className="uil uil-plus"></i>
         </button>
       </label>
+      {isError ? <p className="error">{isError}</p> : ""}
     </div>
   );
 };
