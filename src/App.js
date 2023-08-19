@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './App.css';
 
+import Input from './components/input/Input';
+import ItemList from './components/itemList/ItemList';
+
 function App() {
+  const [tasks, setTasks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/api/todos`)
+      .then(res => {
+        const allTasks = res.data;
+        setTasks(allTasks);
+        setIsLoading(false);
+      })
+      .catch((res) => console.log(res))
+  }, [setTasks])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1 className='title'>Todo!</h1>
+        <Input  setTasks={setTasks} setIsLoading={setIsLoading}/>
+        <ItemList tasks={tasks} setTasks={setTasks} isLoading={isLoading} setIsLoading={setIsLoading}/>
+      </div>
+      {/* <Done/> */}
     </div>
   );
 }

@@ -1,0 +1,43 @@
+.itemList_background {
+  position: relative;
+  display: flex;
+  overflow: scroll;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #fff;
+  width: 410px;
+  height: 310px;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 5px 5px;
+  p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .spiner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+.filter {
+  display: flex;
+  width: 400px;
+  margin: 0 auto;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.btn_f {
+  background-color: #ebebeb;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &:hover {
+      transition: all 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+}

@@ -1,0 +1,68 @@
+.item_background {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ebebeb;
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  text-align: left;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+i {
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.icons_wrapper {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  .uil-trash-alt:hover {
+    color: rgba(255, 0, 0, 0.619);
+  }
+  .uil-pen:hover {
+    color: rgba(0, 47, 255, 0.619);
+  }
+  .uil-check:hover {
+    color: rgba(32, 162, 0, 0.619);
+  }
+  .uil-redo:hover {
+    color: #B663FF;
+  }
+}
+
+.uil {
+  transition: all 0.2s;
+}
+
+.input_edit {
+  height: 30px;
+  width: 180px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.item_title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+// .show {
+//   display: block;
+// }
+
+.ready {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 100%;
+}
