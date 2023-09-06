@@ -43,7 +43,7 @@ const Input = ({ setTasks, setIsLoading }) => {
   return (
     <div className="input_backround">
       <p className="text_title">
-        Add new tasks <br /> and start completing them!
+        Add new tasks <br /> and start completing them
       </p>
       <label htmlFor="task">
         <input
